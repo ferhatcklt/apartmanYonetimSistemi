@@ -46,7 +46,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('proje', \App\Http\Controllers\ProjeController::class);
     Route::get('/proje', [ProjeController::class, 'index'])->name('proje.index');
     Route::get('/proje/create', [ProjeController::class, 'create'])->name('proje.create');
-    Route::post('/proje/ekle', [ProjeController::class, 'store'])->name('proje.store');
 
     // Duyurular
     Route::resource('duyuru', DuyuruController::class);
