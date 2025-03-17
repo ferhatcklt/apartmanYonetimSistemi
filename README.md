@@ -1,66 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Apartman Yönetim Sistemi
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bu proje, apartman yönetimini dijital ortamda kolaylaştırmak amacıyla geliştirilmiş kapsamlı bir sistemdir. Hem yönetici paneli hem de ziyaretçi (guest) tarafı bulunmaktadır. Proje; bina ayarları, aidat ödemeleri, gelir/gider yönetimi, proje yönetimi, duyurular, raporlama, temizlik planı ve daire sahipleri gibi modülleri içerir.
 
-## About Laravel
+## Proje Amacı
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Apartman yönetiminde kullanılan geleneksel yöntemlerin yerini alarak, dijital ortamda daha hızlı, hatasız ve etkili bir yönetim sağlamaktır. Yönetici paneli ile veriler girilebilir, güncellenebilir ve raporlanabilirken; ziyaretçi panelinde ise özet bilgiler ve finansal durum görüntülenir.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Özellikler
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Yönetici Paneli:**
+- **Ayarlar:**  
+  Binada kaç daire olduğu, güncel aidat tutarı, ilk kasa ve log kayıtlarının girilmesi.
+- **Yöneticiler:**  
+  Yönetici ekleme, düzenleme ve silme işlemleri.
+- **Aidat Ödemeleri:**  
+  Yıllık aidat ödeme tablosu (Livewire ile dinamik güncelleme). Manuel aidat girişi yapılarak ödeme durumu (odendi veya odenmedi) veritabanına kaydedilir.
+- **Gelir ve Gider Yönetimi:**  
+  Gelir ve gider ekleme, düzenleme ve silme işlemleri. Gelirler isteğe bağlı olarak projeye bağlanabilir.
+- **Proje Yönetimi:**  
+  Projeler eklenir, düzenlenir ve silinir. Proje toplam tutarı, daire sayısına bölünerek daire başı ödeme hesaplanır.
+- **Duyurular:**  
+  Duyuru ekleme, düzenleme ve silme.
+- **Raporlama:**  
+  Seçilen ay ve yıl için bilanço, ödenmeyen daire sayısı ve güncel kasa hesaplamaları.
+- **Temizlik Planı:**  
+  İlk temizlik 16 Mart'ta başlar. Haftalık temizlik planı oluşturulur, her 4. hafta ödeme haftası olarak işaretlenir. Aylık bazda takvim görünümü ile plan yönetilebilir.
+- **Daire Sahipleri:**  
+  Daire sahibi kayıtları eklenip düzenlenir. (Admin panelinde) Guest tarafında sadece görüntüleme sağlanır.
+- **Bildirimler:**  
+  Eklenen, silinen veya güncellenen veriler için sabit pozisyonda toast bildirimleri gösterilir.
 
-## Learning Laravel
+**Ziyaretçi (Guest) Paneli:**
+- **Ana Sayfa:**  
+  Toplam gelir, gider, beklenen gelir ve ödenmeyen daire sayısı özetleri; son 5 gelir ve gider kaydı; statik aidat çizelgesi.
+- **Borçlular Sayfası:**  
+  Her daire için ödenmemiş ay sayısı, toplam borç ve daire sahibi isimleri listelenir.
+- **Daire Sahipleri:**  
+  Daire sahipleri listesi, sadece görüntüleme amaçlı sunulur.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Kullanılan Teknolojiler
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Backend:** Laravel (8.x veya 9.x)
+- **Dinamik Güncellemeler:** Livewire
+- **Frontend:** Blade, Bootstrap 5, Bootstrap Icons
+- **Veritabanı:** MySQL
+- **Araçlar:** Composer, NPM
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Kurulum
 
-## Laravel Sponsors
+1. **Projeyi Klonlayın:**  
+   Projeyi Git üzerinden klonlayın ve proje dizinine geçin.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. **Composer Bağımlılıklarını Yükleyin:**  
+   Terminalde "composer install" komutunu çalıştırın.
 
-### Premium Partners
+3. **NPM Bağımlılıklarını Yükleyin ve Derleyin:**  
+   Terminalde "npm install" ardından "npm run dev" komutlarını çalıştırın.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+4. **.env Dosyasını Oluşturun ve Ayarlayın:**  
+   Proje kök dizininde ".env.example" dosyasını ".env" olarak kopyalayın. Veritabanı bağlantı bilgileri, uygulama anahtarı ve diğer ayarları kendi ortamınıza göre düzenleyin.  
+   "php artisan key:generate" komutunu çalıştırarak uygulama anahtarını oluşturun.
 
-## Contributing
+5. **Veritabanı Migration İşlemlerini Gerçekleştirin:**  
+   Terminalde "php artisan migrate" komutunu çalıştırın.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6. **Sunucuyu Başlatın:**  
+   Terminalde "php artisan serve" komutunu çalıştırın. Proje genellikle "http://127.0.0.1:8000" adresinde erişilebilir hale gelir.
 
-## Code of Conduct
+## Kullanım
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Yönetici paneline giriş yaptıktan sonra, üst menüde yer alan modüllerden işlemlerinizi gerçekleştirebilirsiniz. Örneğin, aidat ödemeleri, gelir/gider yönetimi, proje yönetimi, temizlik planı, daire sahipleri ve raporlama gibi modüller admin tarafından düzenlenebilir. Ziyaretçi panelinde ise özet bilgiler ve detaylı listeler görüntülenir.
 
-## Security Vulnerabilities
+## Katkıda Bulunma
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Projeye katkıda bulunmak, hata bildirimleri yapmak veya yeni özellikler önermek için lütfen pull request açın veya GitHub üzerinden iletişime geçin.
